@@ -347,9 +347,9 @@ export default function Page() {
         className="relative z-10 mx-auto max-w-7xl scroll-mt-20 px-5 py-16 lg:px-8 lg:py-24"
       >
         {/* Section Header */}
-        <div className="mb-8 flex justify-center">
+        <div className="mb-8 flex justify-start">
           <div
-            className={`w-fit text-center flex flex-col items-center justify-center px-8 py-3.5 sm:px-12 sm:py-4 transition-all duration-300 ${
+            className={`w-fit text-left flex flex-col items-start justify-center px-7 py-3.5 sm:px-9 sm:py-4 transition-all duration-300 ${
               currentTheme === 'chocolatier'
                 ? 'rounded-2xl bg-[#140b07]/90 border border-[#e5b567]/30 shadow-2xl backdrop-blur-md'
                 : 'rounded-2xl bg-white/95 border border-[#f4cbd1] shadow-lg shadow-[#db7a83]/10 backdrop-blur-md'
