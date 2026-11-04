@@ -216,7 +216,13 @@ export default function Page() {
         id="inicio"
         className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-5 pb-16 pt-8 lg:grid-cols-[1fr_1.05fr] lg:px-8 lg:pb-24 lg:pt-14"
       >
-        <div className="max-w-xl">
+        <div
+          className={`max-w-xl p-6 sm:p-9 transition-all duration-300 ${
+            currentTheme === 'chocolatier'
+              ? 'rounded-3xl bg-[#140b07]/90 border border-[#e5b567]/30 shadow-2xl backdrop-blur-md'
+              : 'rounded-3xl bg-white/95 border border-[#f4cbd1] shadow-xl shadow-[#db7a83]/10 backdrop-blur-md'
+          }`}
+        >
           {/* Badge */}
           <div
             className={`mb-5 inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-bold shadow-sm ${
@@ -224,7 +230,7 @@ export default function Page() {
             } ${theme.classes.buttonRadius} ${
               currentTheme === 'chocolatier'
                 ? 'border border-[#e5b567]/50 bg-[#1c100a]/90 text-[#e5b567] shadow-gold-glow'
-                : 'border border-[#f4cbd1] bg-white/95 text-[#b84855] shadow-sm'
+                : 'border border-[#f4cbd1] bg-[#fff0f2] text-[#b84855] shadow-sm'
             }`}
           >
             <Sparkles className="size-3.5" />
@@ -245,7 +251,7 @@ export default function Page() {
 
           <p
             className={`mt-6 max-w-lg text-base leading-relaxed sm:text-lg ${
-              currentTheme === 'chocolatier' ? 'text-[#d8be9f]' : 'text-[#6e4e54]'
+              currentTheme === 'chocolatier' ? 'text-[#d8be9f]' : 'text-[#4a242c]'
             }`}
           >
             {siteConfig.description}
@@ -279,7 +285,7 @@ export default function Page() {
             className={`mt-10 grid grid-cols-3 gap-3 border-t pt-6 text-xs font-semibold leading-snug ${
               currentTheme === 'chocolatier'
                 ? 'border-[#e5b567]/30 text-[#d8be9f]'
-                : 'border-[#f4cbd1] text-[#7a4c54]'
+                : 'border-[#f4cbd1] text-[#4a242c]'
             }`}
           >
             <div>
@@ -297,13 +303,13 @@ export default function Page() {
           </div>
         </div>
 
-        {/* Hero Visual Image Card with Shape that shifts dramatically per theme */}
+        {/* Hero Visual Image Card */}
         <div className="relative">
-          <div className="relative overflow-hidden bg-neutral-100 transition-all duration-300">
+          <div className={`relative overflow-hidden rounded-3xl transition-all duration-300 ${theme.classes.heroFrame}`}>
             <img
               src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1400&q=90"
               alt="Bolo artesanal decorado com frutas nobres"
-              className={`aspect-[4/4.1] w-full object-cover transition-transform duration-700 hover:scale-105 ${theme.classes.heroFrame}`}
+              className="aspect-[4/4.1] w-full object-cover transition-transform duration-700 hover:scale-105"
             />
 
             {/* Overlay Review Badge based on theme style */}
@@ -341,32 +347,30 @@ export default function Page() {
         className="relative z-10 mx-auto max-w-7xl scroll-mt-20 px-5 py-16 lg:px-8 lg:py-24"
       >
         {/* Section Header */}
-        <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div
+          className={`mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end p-6 sm:p-8 transition-all duration-300 ${
+            currentTheme === 'chocolatier'
+              ? 'rounded-3xl bg-[#140b07]/90 border border-[#e5b567]/30 shadow-2xl backdrop-blur-md'
+              : 'rounded-3xl bg-white/95 border border-[#f4cbd1] shadow-xl shadow-[#db7a83]/10 backdrop-blur-md'
+          }`}
+        >
           <div>
             <p
-              className={`mb-2 text-xs font-bold ${
-                theme.isUppercaseTitles
-                  ? 'uppercase tracking-widest font-mono text-[#dc2626]'
-                  : currentTheme === 'chocolatier'
-                    ? 'uppercase tracking-widest text-[#e5b567]'
-                    : currentTheme === 'parisienne'
-                      ? 'uppercase tracking-widest text-[#2e5641]'
-                      : 'uppercase tracking-widest text-[#a87458]'
+              className={`mb-2 text-xs font-bold uppercase tracking-widest ${
+                currentTheme === 'chocolatier' ? 'text-[#e5b567]' : 'text-[#b84855]'
               }`}
             >
               Cardápio Selecionado
             </p>
             <h2
-              className={`${theme.fontTitle} text-3xl sm:text-5xl tracking-tight ${
-                theme.isUppercaseTitles ? 'uppercase tracking-wider font-extrabold' : 'font-bold'
-              }`}
+              className={`${theme.fontTitle} text-3xl sm:text-5xl tracking-tight font-bold`}
             >
               <em className={`not-italic ${theme.classes.accentText}`}>Peça agora.</em>
             </h2>
           </div>
           <p
-            className={`max-w-xs text-xs sm:text-sm leading-relaxed opacity-80 ${
-              currentTheme === 'chocolatier' ? 'text-[#d6b797]' : ''
+            className={`max-w-xs text-xs sm:text-sm leading-relaxed ${
+              currentTheme === 'chocolatier' ? 'text-[#d6b797]' : 'text-[#4a242c]'
             }`}
           >
             Produção em pequenos lotes diários para garantir o máximo frescor e textura perfeita.
@@ -506,7 +510,11 @@ export default function Page() {
         <div className="grid gap-6 md:grid-cols-2">
           {/* Card 1: Cursos de Confeitaria */}
           <div
-            className={`flex flex-col justify-between overflow-hidden p-7 sm:p-9 transition-all ${theme.classes.cardRadius} border-2 border-orange-500/30 bg-gradient-to-br from-orange-500/10 via-transparent to-transparent shadow-lg shadow-orange-500/5`}
+            className={`flex flex-col justify-between overflow-hidden p-7 sm:p-9 transition-all ${theme.classes.cardRadius} border-2 ${
+              currentTheme === 'chocolatier'
+                ? 'bg-[#1a0f0a]/95 border-[#e5b567]/40 shadow-2xl backdrop-blur-md text-[#fbf4eb]'
+                : 'bg-white/95 border-orange-400/50 shadow-xl shadow-orange-500/10 backdrop-blur-md text-[#2c1418]'
+            }`}
           >
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-orange-500/15 px-3.5 py-1.5 text-xs font-bold text-orange-600 mb-4">
@@ -514,17 +522,19 @@ export default function Page() {
                 <span>Cursos & Masterclasses • Vagas Limitadas</span>
               </div>
               <h3
-                className={`${theme.fontTitle} text-2xl sm:text-3xl font-bold leading-tight ${
-                  theme.isUppercaseTitles ? 'uppercase tracking-wider text-xl sm:text-2xl' : ''
-                }`}
+                className={`${theme.fontTitle} text-2xl sm:text-3xl font-bold leading-tight`}
               >
                 Cursos de Confeitaria Doce Castelo
               </h3>
-              <p className="mt-3 text-xs sm:text-sm leading-relaxed opacity-85">
+              <p
+                className={`mt-3 text-xs sm:text-sm leading-relaxed ${
+                  currentTheme === 'chocolatier' ? 'text-[#d8be9f]' : 'text-[#4a242c]'
+                }`}
+              >
                 Domine na prática técnicas profissionais de confeitaria com a nossa chef: massas estruturadas, recheios aveludados, ponto de brigadeiro de panela, montagem de taças gourmet e acabamento fino para venda ou celebração!
               </p>
             </div>
-            <div className="mt-7 pt-5 border-t border-black/10">
+            <div className={`mt-7 pt-5 border-t ${currentTheme === 'chocolatier' ? 'border-white/10' : 'border-[#f4cbd1]'}`}>
               <a
                 href={siteConfig.social.cursosWhatsapp}
                 target="_blank"
@@ -540,7 +550,11 @@ export default function Page() {
 
           {/* Card 2: Grupo VIP de Promoções */}
           <div
-            className={`flex flex-col justify-between overflow-hidden p-7 sm:p-9 transition-all ${theme.classes.cardRadius} border-2 border-pink-500/30 bg-gradient-to-br from-pink-500/10 via-transparent to-transparent shadow-lg shadow-pink-500/5`}
+            className={`flex flex-col justify-between overflow-hidden p-7 sm:p-9 transition-all ${theme.classes.cardRadius} border-2 ${
+              currentTheme === 'chocolatier'
+                ? 'bg-[#1e110c]/95 border-pink-500/40 shadow-2xl backdrop-blur-md text-[#fbf4eb]'
+                : 'bg-white/95 border-pink-400/50 shadow-xl shadow-pink-500/10 backdrop-blur-md text-[#2c1418]'
+            }`}
           >
             <div>
               <div className="inline-flex items-center gap-2 rounded-full bg-pink-500/15 px-3.5 py-1.5 text-xs font-bold text-pink-600 mb-4">
@@ -548,13 +562,15 @@ export default function Page() {
                 <span>Canal Oficial de Clientes VIP</span>
               </div>
               <h3
-                className={`${theme.fontTitle} text-2xl sm:text-3xl font-bold leading-tight ${
-                  theme.isUppercaseTitles ? 'uppercase tracking-wider text-xl sm:text-2xl' : ''
-                }`}
+                className={`${theme.fontTitle} text-2xl sm:text-3xl font-bold leading-tight`}
               >
                 🍰 Grupo de Promoções no WhatsApp
               </h3>
-              <p className="mt-3 text-xs sm:text-sm leading-relaxed opacity-85">
+              <p
+                className={`mt-3 text-xs sm:text-sm leading-relaxed ${
+                  currentTheme === 'chocolatier' ? 'text-[#d8be9f]' : 'text-[#4a242c]'
+                }`}
+              >
                 Quer receber em primeira mão as fatias que acabaram de sair do forno, novidades do cardápio e aproveitar descontos relâmpago exclusivos? Entre no nosso grupo e garanta sua sobremesa com vantagens especiais!
               </p>
             </div>
@@ -732,18 +748,22 @@ export default function Page() {
         className={`relative z-10 px-5 py-16 lg:px-8 lg:py-20 transition-colors duration-300 ${theme.classes.testimonialsBg}`}
       >
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 text-center">
+          <div
+            className={`mx-auto mb-12 max-w-xl text-center p-6 sm:p-8 rounded-3xl backdrop-blur-md border transition-all ${
+              currentTheme === 'chocolatier'
+                ? 'bg-[#140b07]/90 border-[#e5b567]/25 shadow-xl'
+                : 'bg-white/95 border-[#f4cbd1] shadow-lg shadow-[#db7a83]/10'
+            }`}
+          >
             <p
               className={`mb-2 text-xs font-bold uppercase tracking-widest ${
-                currentTheme === 'chocolatier' ? 'text-[#e5b567]' : 'text-[#db7a83]'
+                currentTheme === 'chocolatier' ? 'text-[#e5b567]' : 'text-[#b84855]'
               }`}
             >
               Experiência Comprovada
             </p>
             <h2
-              className={`${theme.fontTitle} text-3xl sm:text-4xl tracking-tight ${
-                theme.isUppercaseTitles ? 'uppercase tracking-wider font-extrabold' : 'font-bold'
-              }`}
+              className={`${theme.fontTitle} text-3xl sm:text-4xl tracking-tight font-bold`}
             >
               Afeto que dá vontade de{' '}
               <em className={`not-italic ${theme.classes.accentText}`}>repetir.</em>
@@ -810,18 +830,22 @@ export default function Page() {
         id="duvidas"
         className="relative z-10 mx-auto max-w-3xl scroll-mt-20 px-5 py-16 lg:py-24"
       >
-        <div className="mb-10 text-center">
+        <div
+          className={`mx-auto mb-10 max-w-xl text-center p-6 sm:p-7 rounded-3xl backdrop-blur-md border transition-all ${
+            currentTheme === 'chocolatier'
+              ? 'bg-[#140b07]/90 border-[#e5b567]/25 shadow-xl'
+              : 'bg-white/95 border-[#f4cbd1] shadow-lg shadow-[#db7a83]/10'
+          }`}
+        >
           <p
             className={`mb-2 text-xs font-bold uppercase tracking-widest ${
-              currentTheme === 'chocolatier' ? 'text-[#e5b567]' : 'text-[#db7a83]'
+              currentTheme === 'chocolatier' ? 'text-[#e5b567]' : 'text-[#b84855]'
             }`}
           >
             Antes de Fazer o Pedido
           </p>
           <h2
-            className={`${theme.fontTitle} text-3xl sm:text-4xl ${
-              theme.isUppercaseTitles ? 'uppercase tracking-wider font-extrabold' : 'font-bold'
-            }`}
+            className={`${theme.fontTitle} text-3xl sm:text-4xl font-bold`}
           >
             Dúvidas Frequentes
           </h2>

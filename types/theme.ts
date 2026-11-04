@@ -71,8 +71,8 @@ export const themeConfigs: Record<ThemeStyle, ThemeConfig> = {
     isUppercaseTitles: false,
     // Foto horizontal apetitosa de bolo artesanal com morangos e cobertura branca, bem visível
     immersiveBgImage: 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=2400&q=85',
-    immersiveBgOverlay: 'bg-gradient-to-b from-white/35 via-[#fff2f4]/45 to-white/50 backdrop-blur-[0.5px]',
-    immersiveBgFilter: 'opacity-80 contrast-110 saturate-110',
+    immersiveBgOverlay: 'bg-gradient-to-b from-white/55 via-[#fff5f6]/65 to-white/70 backdrop-blur-[1px]',
+    immersiveBgFilter: 'opacity-85 contrast-105 saturate-105',
     classes: {
       pageBg: 'bg-transparent',
       textColor: 'text-[#2c1418]',
@@ -94,7 +94,7 @@ export const themeConfigs: Record<ThemeStyle, ThemeConfig> = {
       cardShadow: 'shadow-md shadow-[#db7a83]/10 hover:shadow-2xl hover:shadow-[#db7a83]/20 hover:-translate-y-1.5',
       cardRadius: 'rounded-[1.8rem]',
       imageRadius: 'rounded-t-[1.8rem]',
-      heroFrame: 'rounded-[2.2rem] rounded-tr-[7rem] border-2 border-[#f4cbd1] shadow-2xl shadow-[#db7a83]/20',
+      heroFrame: 'rounded-3xl shadow-2xl shadow-[#db7a83]/20',
       categoryTabActive: 'rounded-full bg-[#db7a83] text-white shadow-md shadow-[#db7a83]/30 font-bold',
       categoryTabInactive: 'rounded-full border border-[#f4cbd1] bg-white/90 text-[#7a4c54] hover:border-[#db7a83] hover:text-[#db7a83]',
       atelieBg: 'bg-gradient-to-br from-[#45141b] via-[#5c1c25] to-[#360e14]',
@@ -152,7 +152,7 @@ export const themeConfigs: Record<ThemeStyle, ThemeConfig> = {
       cardShadow: 'shadow-xl shadow-black/40 hover:shadow-2xl hover:shadow-[#e5b567]/10 hover:-translate-y-1.5',
       cardRadius: 'rounded-2xl',
       imageRadius: 'rounded-t-2xl',
-      heroFrame: 'rounded-2xl border-2 border-[#e5b567]/40 shadow-2xl shadow-black/60 shadow-gold-glow',
+      heroFrame: 'rounded-3xl shadow-2xl shadow-black/60 shadow-gold-glow',
       categoryTabActive: 'rounded-xl bg-gradient-to-r from-[#d4a373] to-[#e5b567] text-[#140b07] font-bold shadow-md shadow-[#e5b567]/20',
       categoryTabInactive: 'rounded-xl border border-[#e5b567]/25 bg-[#1a0f0a]/80 text-[#d6b797] hover:border-[#e5b567] hover:text-[#e5b567]',
       atelieBg: 'bg-gradient-to-br from-[#1a0e08] via-[#2d180f] to-[#120905]',
