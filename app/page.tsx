@@ -222,15 +222,9 @@ export default function Page() {
             className={`mb-5 inline-flex items-center gap-2 px-3.5 py-1.5 text-xs font-bold shadow-sm ${
               theme.isUppercaseTitles ? 'uppercase tracking-widest font-mono' : 'tracking-wide'
             } ${theme.classes.buttonRadius} ${
-              currentTheme === 'retro'
-                ? 'border-2 border-[#d9653b] bg-[#fdf3ec] text-[#d9653b]'
-                : currentTheme === 'minimalist'
-                  ? 'border border-black bg-black text-white'
-                  : currentTheme === 'chocolatier'
-                    ? 'border border-[#e5b567]/50 bg-[#1c100a]/90 text-[#e5b567] shadow-gold-glow'
-                    : currentTheme === 'parisienne'
-                      ? 'border border-[#c5a059]/50 bg-[#edf5f0]/95 text-[#254233]'
-                      : 'border border-[#eadfd2] bg-white/90 text-[#8b263e]'
+              currentTheme === 'chocolatier'
+                ? 'border border-[#e5b567]/50 bg-[#1c100a]/90 text-[#e5b567] shadow-gold-glow'
+                : 'border border-[#f4cbd1] bg-white/95 text-[#b84855] shadow-sm'
             }`}
           >
             <Sparkles className="size-3.5" />
@@ -251,11 +245,7 @@ export default function Page() {
 
           <p
             className={`mt-6 max-w-lg text-base leading-relaxed sm:text-lg ${
-              currentTheme === 'chocolatier'
-                ? 'text-[#d8be9f]'
-                : currentTheme === 'parisienne'
-                  ? 'text-[#385544]'
-                  : 'text-[#755f52]'
+              currentTheme === 'chocolatier' ? 'text-[#d8be9f]' : 'text-[#6e4e54]'
             }`}
           >
             {siteConfig.description}
@@ -287,15 +277,9 @@ export default function Page() {
           {/* Feature highlights below Hero */}
           <div
             className={`mt-10 grid grid-cols-3 gap-3 border-t pt-6 text-xs font-semibold leading-snug ${
-              currentTheme === 'minimalist'
-                ? 'border-black text-black font-mono uppercase text-[11px]'
-                : currentTheme === 'retro'
-                  ? 'border-[#d9653b]/30 text-[#422c20]'
-                  : currentTheme === 'chocolatier'
-                    ? 'border-[#e5b567]/30 text-[#d8be9f]'
-                    : currentTheme === 'parisienne'
-                      ? 'border-[#3d6952]/30 text-[#2c4737]'
-                      : 'border-[#e8dbd0] text-[#735d50]'
+              currentTheme === 'chocolatier'
+                ? 'border-[#e5b567]/30 text-[#d8be9f]'
+                : 'border-[#f4cbd1] text-[#7a4c54]'
             }`}
           >
             <div>
@@ -325,15 +309,9 @@ export default function Page() {
             {/* Overlay Review Badge based on theme style */}
             <div
               className={`absolute bottom-5 left-5 right-5 sm:right-auto p-4 transition-all duration-300 ${
-                currentTheme === 'retro'
-                  ? 'rounded-2xl border-2 border-[#d9653b] bg-[#fffbf2] shadow-[4px_4px_0px_0px_#d9653b] text-[#38261e]'
-                  : currentTheme === 'minimalist'
-                    ? 'rounded-none border border-black bg-white text-black shadow-none font-mono'
-                    : currentTheme === 'chocolatier'
-                      ? 'rounded-2xl border border-[#e5b567]/50 bg-[#1a0f0a]/95 text-[#fbf4eb] shadow-xl shadow-black/60 shadow-gold-glow backdrop-blur-md'
-                      : currentTheme === 'parisienne'
-                        ? 'rounded-2xl border border-[#c5a059]/40 bg-white/95 text-[#1f3327] shadow-xl shadow-[#2e5641]/10 backdrop-blur-md'
-                        : 'rounded-2xl border border-white/60 bg-white/95 text-[#2c1810] shadow-xl backdrop-blur-md'
+                currentTheme === 'chocolatier'
+                  ? 'rounded-2xl border border-[#e5b567]/50 bg-[#1a0f0a]/95 text-[#fbf4eb] shadow-xl shadow-black/60 shadow-gold-glow backdrop-blur-md'
+                  : 'rounded-2xl border border-[#f4cbd1] bg-white/95 text-[#2c1418] shadow-xl shadow-[#db7a83]/15 backdrop-blur-md'
               }`}
             >
               <div className="flex items-center gap-1 text-[#c58d42]">
@@ -444,15 +422,9 @@ export default function Page() {
                   <button
                     onClick={() => setSelectedProductForQuickView(product)}
                     className={`absolute right-3.5 top-3.5 flex items-center gap-1.5 px-3 py-1 text-[11px] font-medium backdrop-blur-md transition-all cursor-pointer ${
-                      currentTheme === 'minimalist'
-                        ? 'rounded-none bg-white text-black border border-black uppercase font-mono text-[10px]'
-                        : currentTheme === 'retro'
-                          ? 'rounded-xl bg-[#fffbf2] text-[#38261e] border-2 border-[#d9653b] shadow-[2px_2px_0px_0px_#d9653b]'
-                          : currentTheme === 'chocolatier'
-                            ? 'rounded-lg bg-[#140b07]/85 text-[#e5b567] border border-[#e5b567]/40 hover:bg-[#1a0f0a]'
-                            : currentTheme === 'parisienne'
-                              ? 'rounded-full bg-white/85 text-[#2e5641] border border-[#3d6952]/30 hover:bg-white'
-                              : 'rounded-full bg-black/60 text-white hover:bg-black/80'
+                      currentTheme === 'chocolatier'
+                        ? 'rounded-lg bg-[#140b07]/85 text-[#e5b567] border border-[#e5b567]/40 hover:bg-[#1a0f0a]'
+                        : 'rounded-full bg-white/90 text-[#b84855] border border-[#f4cbd1] hover:bg-white shadow-sm'
                     }`}
                     title="Ver detalhes e ingredientes"
                   >
@@ -465,13 +437,7 @@ export default function Page() {
                 <div className="flex flex-col gap-2.5 p-5">
                   <span
                     className={`text-[10px] font-semibold uppercase tracking-wider ${
-                      theme.isUppercaseTitles
-                        ? 'font-mono text-[#dc2626]'
-                        : currentTheme === 'chocolatier'
-                          ? 'text-[#e5b567]'
-                          : currentTheme === 'parisienne'
-                            ? 'text-[#2e5641]'
-                            : 'text-[#a87858]'
+                      currentTheme === 'chocolatier' ? 'text-[#e5b567]' : 'text-[#db7a83]'
                     }`}
                   >
                     {product.category}
@@ -485,11 +451,7 @@ export default function Page() {
                   </h3>
                   <p
                     className={`text-xs leading-relaxed ${
-                      currentTheme === 'chocolatier'
-                        ? 'text-[#c7a98b]'
-                        : currentTheme === 'parisienne'
-                          ? 'text-[#4d6b5b]'
-                          : 'text-[#786356]'
+                      currentTheme === 'chocolatier' ? 'text-[#c7a98b]' : 'text-[#6e4e54]'
                     }`}
                   >
                     {product.description}
@@ -503,15 +465,7 @@ export default function Page() {
               {/* Card Footer with Price and Order Actions */}
               <div
                 className={`flex items-center justify-between gap-2 p-5 pt-4 border-t ${
-                  currentTheme === 'minimalist'
-                    ? 'border-black'
-                    : currentTheme === 'retro'
-                      ? 'border-[#d9653b]/20'
-                      : currentTheme === 'chocolatier'
-                        ? 'border-[#e5b567]/20'
-                        : currentTheme === 'parisienne'
-                          ? 'border-[#3d6952]/20'
-                          : 'border-[#eee4dc]'
+                  currentTheme === 'chocolatier' ? 'border-[#e5b567]/20' : 'border-[#f4cbd1]'
                 }`}
               >
                 <div>
@@ -629,13 +583,7 @@ export default function Page() {
           <div>
             <p
               className={`mb-3 text-xs font-bold uppercase tracking-widest ${
-                currentTheme === 'minimalist'
-                  ? 'font-mono text-[#f87171]'
-                  : currentTheme === 'chocolatier'
-                    ? 'text-[#e5b567]'
-                    : currentTheme === 'parisienne'
-                      ? 'text-[#c5a059]'
-                      : 'text-[#d4a373]'
+                currentTheme === 'chocolatier' ? 'text-[#e5b567]' : 'text-[#fce4e8]'
               }`}
             >
               Ateliê de Projetos Sob Medida
@@ -672,41 +620,23 @@ export default function Page() {
 
           <div
             className={`relative hidden aspect-square overflow-hidden border p-3 sm:block ${
-              currentTheme === 'minimalist'
-                ? 'rounded-none border-2 border-white'
-                : currentTheme === 'retro'
-                  ? 'rounded-3xl border-4 border-[#fffbf2]'
-                  : currentTheme === 'chocolatier'
-                    ? 'rounded-2xl border-2 border-[#e5b567]/50 shadow-gold-glow'
-                    : currentTheme === 'parisienne'
-                      ? 'rounded-full border-2 border-[#c5a059]/50 shadow-pistache-glow'
-                      : 'rounded-full border border-white/20'
+              currentTheme === 'chocolatier'
+                ? 'rounded-2xl border-2 border-[#e5b567]/50 shadow-gold-glow'
+                : 'rounded-3xl border-2 border-[#f4cbd1]/50 shadow-xl shadow-[#db7a83]/20'
             }`}
           >
             <img
               src="https://images.unsplash.com/photo-1558301211-0d8c8ddee6ec?auto=format&fit=crop&w=800&q=85"
-              alt="Detalhe de bolo de casamento decorado com flores"
+              alt="Detalhe de bolo de festa artesanal"
               className={`size-full object-cover ${
-                currentTheme === 'minimalist'
-                  ? 'rounded-none'
-                  : currentTheme === 'retro'
-                    ? 'rounded-2xl'
-                    : currentTheme === 'chocolatier'
-                      ? 'rounded-xl'
-                      : 'rounded-full'
+                currentTheme === 'chocolatier' ? 'rounded-xl' : 'rounded-2xl'
               }`}
             />
             <div
               className={`absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 text-xs font-bold shadow-lg whitespace-nowrap ${
-                currentTheme === 'retro'
-                  ? 'rounded-xl border-2 border-[#d9653b] bg-[#fffbf2] text-[#d9653b]'
-                  : currentTheme === 'minimalist'
-                    ? 'rounded-none border border-black bg-white text-black font-mono uppercase'
-                    : currentTheme === 'chocolatier'
-                      ? 'rounded-xl border border-[#e5b567]/50 bg-[#1c100a] text-[#e5b567] shadow-gold-glow'
-                      : currentTheme === 'parisienne'
-                        ? 'rounded-full border border-[#c5a059] bg-[#fbf9f4] text-[#254233]'
-                        : 'rounded-full bg-white text-[#8b263e]'
+                currentTheme === 'chocolatier'
+                  ? 'rounded-xl border border-[#e5b567]/50 bg-[#1c100a] text-[#e5b567] shadow-gold-glow'
+                  : 'rounded-full bg-white text-[#b84855] border border-[#f4cbd1] shadow-md'
               }`}
             >
               ✨ Projetos 100% Autorais
@@ -735,11 +665,7 @@ export default function Page() {
             </h3>
             <p
               className={`mt-3 text-xs sm:text-sm leading-relaxed ${
-                currentTheme === 'chocolatier'
-                  ? 'text-[#c7a98b]'
-                  : currentTheme === 'parisienne'
-                    ? 'text-[#415e4f]'
-                    : 'text-[#755e51]'
+                currentTheme === 'chocolatier' ? 'text-[#c7a98b]' : 'text-[#6e4e54]'
               }`}
             >
               Caixas reforçadas com base antiderrapante para bolos e fatias chegarem impecáveis. Peça
@@ -761,11 +687,7 @@ export default function Page() {
             </h3>
             <p
               className={`mt-3 text-xs sm:text-sm leading-relaxed ${
-                currentTheme === 'chocolatier'
-                  ? 'text-[#c7a98b]'
-                  : currentTheme === 'parisienne'
-                    ? 'text-[#415e4f]'
-                    : 'text-[#755e51]'
+                currentTheme === 'chocolatier' ? 'text-[#c7a98b]' : 'text-[#6e4e54]'
               }`}
             >
               Mantenha refrigerado e retire da geladeira 30 minutos antes de servir. O creme atinge o
@@ -787,11 +709,7 @@ export default function Page() {
             </h3>
             <p
               className={`mt-3 text-xs sm:text-sm leading-relaxed ${
-                currentTheme === 'chocolatier'
-                  ? 'text-[#c7a98b]'
-                  : currentTheme === 'parisienne'
-                    ? 'text-[#415e4f]'
-                    : 'text-[#755e51]'
+                currentTheme === 'chocolatier' ? 'text-[#c7a98b]' : 'text-[#6e4e54]'
               }`}
             >
               {siteConfig.address.full}
@@ -817,13 +735,7 @@ export default function Page() {
           <div className="mb-12 text-center">
             <p
               className={`mb-2 text-xs font-bold uppercase tracking-widest ${
-                theme.isUppercaseTitles
-                  ? 'font-mono text-[#dc2626]'
-                  : currentTheme === 'chocolatier'
-                    ? 'text-[#e5b567]'
-                    : currentTheme === 'parisienne'
-                      ? 'text-[#2e5641]'
-                      : 'text-[#a87458]'
+                currentTheme === 'chocolatier' ? 'text-[#e5b567]' : 'text-[#db7a83]'
               }`}
             >
               Experiência Comprovada
@@ -875,11 +787,7 @@ export default function Page() {
                 </div>
                 <div
                   className={`mt-6 border-t pt-4 ${
-                    currentTheme === 'chocolatier'
-                      ? 'border-[#e5b567]/20'
-                      : currentTheme === 'parisienne'
-                        ? 'border-[#3d6952]/20'
-                        : 'border-black/10'
+                    currentTheme === 'chocolatier' ? 'border-[#e5b567]/20' : 'border-[#f4cbd1]'
                   }`}
                 >
                   <strong
@@ -905,13 +813,7 @@ export default function Page() {
         <div className="mb-10 text-center">
           <p
             className={`mb-2 text-xs font-bold uppercase tracking-widest ${
-              theme.isUppercaseTitles
-                ? 'font-mono text-[#dc2626]'
-                : currentTheme === 'chocolatier'
-                  ? 'text-[#e5b567]'
-                  : currentTheme === 'parisienne'
-                    ? 'text-[#2e5641]'
-                    : 'text-[#a87458]'
+              currentTheme === 'chocolatier' ? 'text-[#e5b567]' : 'text-[#db7a83]'
             }`}
           >
             Antes de Fazer o Pedido
@@ -961,11 +863,7 @@ export default function Page() {
               </summary>
               <p
                 className={`max-w-2xl pt-3 text-xs sm:text-sm leading-relaxed ${
-                  currentTheme === 'chocolatier'
-                    ? 'text-[#c7a98b]'
-                    : currentTheme === 'parisienne'
-                      ? 'text-[#415e4f]'
-                      : 'text-[#755f52]'
+                  currentTheme === 'chocolatier' ? 'text-[#c7a98b]' : 'text-[#6e4e54]'
                 }`}
               >
                 {faq.answer}
@@ -1013,13 +911,7 @@ export default function Page() {
           <div>
             <h3
               className={`mb-3 text-xs font-bold uppercase tracking-widest ${
-                currentTheme === 'minimalist'
-                  ? 'font-mono text-[#f87171]'
-                  : currentTheme === 'chocolatier'
-                    ? 'text-[#e5b567]'
-                    : currentTheme === 'parisienne'
-                      ? 'text-[#c5a059]'
-                      : 'text-[#d4a373]'
+                currentTheme === 'chocolatier' ? 'text-[#e5b567]' : 'text-[#f4cbd1]'
               }`}
             >
               Ateliê & Retirada
@@ -1038,13 +930,7 @@ export default function Page() {
           <div>
             <h3
               className={`mb-3 text-xs font-bold uppercase tracking-widest ${
-                currentTheme === 'minimalist'
-                  ? 'font-mono text-[#f87171]'
-                  : currentTheme === 'chocolatier'
-                    ? 'text-[#e5b567]'
-                    : currentTheme === 'parisienne'
-                      ? 'text-[#c5a059]'
-                      : 'text-[#d4a373]'
+                currentTheme === 'chocolatier' ? 'text-[#e5b567]' : 'text-[#f4cbd1]'
               }`}
             >
               Canais de Pedido
@@ -1072,15 +958,9 @@ export default function Page() {
         <button
           onClick={() => openOrderDemo(null, undefined, 'whatsapp')}
           className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-3 text-xs font-bold text-white shadow-xl shadow-black/20 ${
-            currentTheme === 'minimalist'
-              ? 'rounded-none bg-black border border-white'
-              : currentTheme === 'retro'
-                ? 'rounded-2xl border-2 border-[#d9653b] bg-[#d9653b]'
-                : currentTheme === 'chocolatier'
-                  ? 'rounded-xl bg-gradient-to-r from-[#d4a373] to-[#e5b567] text-[#140b07] font-extrabold border border-[#e5b567]/50'
-                  : currentTheme === 'parisienne'
-                    ? 'rounded-full bg-[#2e5641] text-white border border-[#c5a059]/40'
-                    : 'rounded-full bg-[#25d366]'
+            currentTheme === 'chocolatier'
+              ? 'rounded-xl bg-gradient-to-r from-[#d4a373] to-[#e5b567] text-[#140b07] font-extrabold border border-[#e5b567]/50'
+              : 'rounded-full bg-[#25d366]'
           }`}
         >
           <MessageCircle className="size-4 shrink-0" />
@@ -1090,15 +970,9 @@ export default function Page() {
         <button
           onClick={() => openOrderDemo(null, undefined, 'ifood')}
           className={`flex items-center justify-center px-3 py-3 text-white shadow-xl shadow-black/20 font-bold text-xs gap-1 ${
-            currentTheme === 'minimalist'
-              ? 'rounded-none bg-[#ea1d2c] border border-black'
-              : currentTheme === 'retro'
-                ? 'rounded-2xl border-2 border-[#d9653b] bg-[#ea1d2c]'
-                : currentTheme === 'chocolatier'
-                  ? 'rounded-xl border border-[#e5b567]/50 bg-[#ea1d2c]'
-                  : currentTheme === 'parisienne'
-                    ? 'rounded-full border border-[#c5a059]/40 bg-[#ea1d2c]'
-                    : 'rounded-full bg-[#ea1d2c]'
+            currentTheme === 'chocolatier'
+              ? 'rounded-xl border border-[#e5b567]/50 bg-[#ea1d2c]'
+              : 'rounded-full bg-[#ea1d2c]'
           }`}
           aria-label="Pedir no iFood"
           title="iFood"
@@ -1110,15 +984,9 @@ export default function Page() {
         <button
           onClick={() => openOrderDemo(null, undefined, '99food')}
           className={`flex items-center justify-center px-3 py-3 text-white shadow-xl shadow-black/20 font-bold text-xs gap-1 ${
-            currentTheme === 'minimalist'
-              ? 'rounded-none bg-[#ff5e00] border border-black'
-              : currentTheme === 'retro'
-                ? 'rounded-2xl border-2 border-[#d9653b] bg-[#ff5e00]'
-                : currentTheme === 'chocolatier'
-                  ? 'rounded-xl border border-[#e5b567]/50 bg-[#ff5e00]'
-                  : currentTheme === 'parisienne'
-                    ? 'rounded-full border border-[#c5a059]/40 bg-[#ff5e00]'
-                    : 'rounded-full bg-[#ff5e00]'
+            currentTheme === 'chocolatier'
+              ? 'rounded-xl border border-[#e5b567]/50 bg-[#ff5e00]'
+              : 'rounded-full bg-[#ff5e00]'
           }`}
           aria-label="Pedir no 99Food"
           title="99Food"
