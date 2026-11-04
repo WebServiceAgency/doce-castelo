@@ -349,19 +349,19 @@ export default function Page() {
         {/* Section Header & Store Status */}
         <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
           <div
-            className={`w-fit text-left flex flex-col items-start justify-center px-7 py-3.5 sm:px-9 sm:py-4 transition-all duration-300 ${
+            className={`w-full sm:w-[54%] lg:w-[50%] min-w-[280px] max-w-2xl text-center flex flex-col items-center justify-center py-4 sm:py-5 px-6 sm:px-10 transition-all duration-300 ${
               currentTheme === 'chocolatier'
                 ? 'rounded-2xl bg-[#140b07]/90 border border-[#e5b567]/30 shadow-2xl backdrop-blur-md'
                 : 'rounded-2xl bg-white/95 border border-[#f4cbd1] shadow-lg shadow-[#db7a83]/10 backdrop-blur-md'
             }`}
           >
             <h2
-              className={`${theme.fontTitle} text-3xl sm:text-4xl font-extrabold tracking-tight ${theme.classes.textColor}`}
+              className={`${theme.fontTitle} text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tight ${theme.classes.textColor}`}
             >
               Cardápio
             </h2>
             <p
-              className={`mt-0.5 text-sm sm:text-base font-bold tracking-wide italic ${theme.classes.accentText}`}
+            className={`mt-1 text-sm sm:text-base font-bold tracking-wide italic ${theme.classes.accentText}`}
             >
               <em>🍰 Peça agora</em>
             </p>
