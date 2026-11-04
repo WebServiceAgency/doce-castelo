@@ -1,6 +1,6 @@
 'use client'
 
-import { X, MessageCircle, ShoppingBag, MapPin, Clock, CakeSlice } from 'lucide-react'
+import { X, MessageCircle, ShoppingBag, MapPin, Clock, UtensilsCrossed, GraduationCap, Flame, ExternalLink } from 'lucide-react'
 import { InstagramIcon } from '@/components/icons/InstagramIcon'
 import { siteConfig } from '@/config/site'
 import { ThemeConfig } from '@/types/theme'
@@ -16,10 +16,11 @@ export function MobileMenu({ isOpen, onClose, onOpenOrderModal, theme }: MobileM
   if (!isOpen) return null
 
   const navLinks = [
-    { label: 'Vitrine de Hoje', href: '#vitrine' },
+    { label: 'Cardápio / Vitrine', href: '#vitrine' },
+    { label: 'Cursos & Grupo VIP', href: '#comunidade' },
     { label: 'Bolos de Festa & Encomendas', href: '#atelie' },
-    { label: 'Diferenciais & Conservação', href: '#diferenciais' },
-    { label: 'Quem Prova, Volta', href: '#depoimentos' },
+    { label: 'Como Entregamos (iFood & 99)', href: '#diferenciais' },
+    { label: 'Avaliações no Google', href: '#depoimentos' },
     { label: 'Dúvidas Frequentes', href: '#duvidas' },
   ]
 
@@ -45,9 +46,11 @@ export function MobileMenu({ isOpen, onClose, onOpenOrderModal, theme }: MobileM
           {/* Header */}
           <div className="flex items-center justify-between border-b border-[#f0e4d9] pb-4">
             <div className="flex items-center gap-3">
-              <span className={`flex size-10 items-center justify-center ${theme.classes.logoShape} ${theme.classes.logoBg} ${theme.classes.logoColor}`}>
-                <CakeSlice className="size-5" />
-              </span>
+              <img
+                src="/images/logo-doce-castelo.webp"
+                alt="Doce Castelo"
+                className="size-11 rounded-full object-cover border border-[#d4a373] shadow-sm"
+              />
               <div>
                 <strong className={`block text-xl leading-none ${theme.classes.logoText}`}>
                   {siteConfig.name}
@@ -73,12 +76,12 @@ export function MobileMenu({ isOpen, onClose, onOpenOrderModal, theme }: MobileM
           </div>
 
           {/* Navigation Links */}
-          <nav className="mt-6 flex flex-col gap-1">
+          <nav className="mt-5 flex flex-col gap-1">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleLinkClick(link.href)}
-                className="flex items-center justify-between rounded-xl px-3 py-3 text-left text-sm font-semibold text-[#4a3428] transition-colors hover:bg-[#fbf6f0] hover:text-[#8b263e]"
+                className="flex items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm font-semibold text-[#4a3428] transition-colors hover:bg-[#fbf6f0] hover:text-[#8b263e]"
               >
                 <span>{link.label}</span>
                 <span className="text-[#c1ab9e]">→</span>
@@ -86,34 +89,86 @@ export function MobileMenu({ isOpen, onClose, onOpenOrderModal, theme }: MobileM
             ))}
           </nav>
 
-          {/* CTA Buttons */}
-          <div className="mt-6 space-y-2 border-t border-[#f0e4d9] pt-5">
-            <button
-              onClick={() => {
-                onClose()
-                onOpenOrderModal()
-              }}
-              className={`flex w-full items-center justify-center gap-2 bg-[#25d366] px-4 py-3 text-xs font-bold text-white shadow-md shadow-[#25d366]/20 transition-all hover:bg-[#20ba59] ${theme.classes.buttonRadius}`}
-            >
-              <MessageCircle className="size-4" />
-              Fazer Pedido no WhatsApp
-            </button>
+          {/* Delivery & Direct Actions */}
+          <div className="mt-5 space-y-2 border-t border-[#f0e4d9] pt-4">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-[#8c7465]">
+              Canais Oficiais do Linktree
+            </p>
 
-            <button
-              onClick={() => {
-                onClose()
-                onOpenOrderModal('ifood')
-              }}
-              className={`flex w-full items-center justify-center gap-2 bg-[#ea1d2c] px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-[#ea1d2c]/20 transition-all hover:bg-[#d41423] ${theme.classes.buttonRadius}`}
+            {/* WhatsApp Atendimento */}
+            <a
+              href={siteConfig.social.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-between rounded-xl bg-[#25d366] px-4 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-[#20ba59]"
             >
-              <ShoppingBag className="size-4" />
-              Pedir pelo iFood
-            </button>
+              <span className="flex items-center gap-2">
+                <MessageCircle className="size-4" />
+                Atendimento Loja no WhatsApp
+              </span>
+              <ExternalLink className="size-3.5 opacity-80" />
+            </a>
+
+            {/* iFood */}
+            <a
+              href={siteConfig.social.ifoodUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-between rounded-xl bg-[#ea1d2c] px-4 py-2.5 text-xs font-bold text-white shadow-sm transition-all hover:bg-[#d41423]"
+            >
+              <span className="flex items-center gap-2">
+                <ShoppingBag className="size-4" />
+                Delivery iFood
+              </span>
+              <ExternalLink className="size-3.5 opacity-80" />
+            </a>
+
+            {/* 99Food */}
+            <a
+              href={siteConfig.social.food99Url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-between rounded-xl border border-amber-400 bg-amber-50 px-4 py-2 text-xs font-bold text-amber-800 transition-all hover:bg-amber-100"
+            >
+              <span className="flex items-center gap-2">
+                <UtensilsCrossed className="size-4 text-amber-600" />
+                Delivery 99Food
+              </span>
+              <ExternalLink className="size-3.5 opacity-80" />
+            </a>
+
+            {/* Cursos */}
+            <a
+              href={siteConfig.social.cursosWhatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-between rounded-xl border border-orange-200 bg-orange-50 px-4 py-2 text-xs font-bold text-orange-800 transition-all hover:bg-orange-100"
+            >
+              <span className="flex items-center gap-2">
+                <GraduationCap className="size-4 text-orange-600" />
+                Cursos de Confeitaria
+              </span>
+              <ExternalLink className="size-3.5 opacity-80" />
+            </a>
+
+            {/* Grupo Promoções */}
+            <a
+              href={siteConfig.social.promoGroupWhatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-between rounded-xl border border-pink-200 bg-pink-50 px-4 py-2 text-xs font-bold text-pink-800 transition-all hover:bg-pink-100"
+            >
+              <span className="flex items-center gap-2">
+                <Flame className="size-4 text-pink-600" />
+                Grupo VIP de Promoções
+              </span>
+              <ExternalLink className="size-3.5 opacity-80" />
+            </a>
           </div>
         </div>
 
         {/* Footer info in mobile drawer */}
-        <div className="mt-8 border-t border-[#f0e4d9] pt-4 text-xs text-[#7d6555] space-y-2">
+        <div className="mt-6 border-t border-[#f0e4d9] pt-4 text-xs text-[#7d6555] space-y-1.5">
           <div className="flex items-start gap-2">
             <MapPin className="size-4 shrink-0 text-[#8b263e] mt-0.5" />
             <span>{siteConfig.address.full}</span>
@@ -131,4 +186,3 @@ export function MobileMenu({ isOpen, onClose, onOpenOrderModal, theme }: MobileM
     </div>
   )
 }
-

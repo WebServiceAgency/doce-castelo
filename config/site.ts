@@ -4,8 +4,8 @@ export const siteConfig = {
   headline: 'Momentos doces merecem',
   headlineHighlight: 'sabores inesquecíveis.',
   description:
-    'Fatias recheadas de bolo, bombons de copo, taças de brownie com Nutella e doces finos no Água Verde em Curitiba.',
-  announcement: 'Fornadas frescas diárias • Peça pelo WhatsApp ou iFood • Água Verde, Curitiba',
+    'Fatias recheadas de bolo, bombons de copo, taças de brownie com Nutella e sobremesas no Água Verde em Curitiba.',
+  announcement: 'Fornadas frescas diárias • Peça no iFood, 99Food ou WhatsApp • Água Verde, Curitiba',
   address: {
     street: 'Rua Maranhão, 1031',
     neighborhood: 'Água Verde',
@@ -23,18 +23,22 @@ export const siteConfig = {
   social: {
     instagram: 'https://www.instagram.com/docecastelodoceria/',
     instagramHandle: '@docecastelodoceria',
+    whatsappLink: 'https://wa.me/message/7SIBECWCEQ2XH1',
     whatsapp: '5541995147936',
     whatsappFormatted: '(41) 99514-7936',
-    whatsappCursos: '5541992880945',
     ifoodUrl:
-      'https://www.ifood.com.br/delivery/curitiba-pr/doce-castelo-doceria---agua-verde-agua-verde/9d3b4485-104b-4591-b64d-7180641db95c',
+      'https://www.ifood.com.br/delivery/curitiba-pr/doce-castelo-doceria---agua-verde-agua-verde/9d3b4485-104b-4591-b64d-7180641db95c?UTM_Medium=share',
+    food99Url: 'https://oia.99app.com/dlp9/EmruhJ',
+    cursosWhatsapp:
+      'https://wa.me/5541992880945?text=%F0%9F%91%89%20Quero%20me%20inscrever%20no%20pr%C3%B3ximo%20curso',
+    promoGroupWhatsapp: 'https://chat.whatsapp.com/JhmyktyLwMw8Imq5kk6BEx',
     linktree: 'https://linktr.ee/Docecastelodoceria',
   },
   badges: [
     { title: 'Chocolates Nobres & Cacau 50%', desc: 'Sem gordura hidrogenada, Nutella pura e frutas frescas' },
     { title: 'Fornadas Frescas Diárias', desc: 'Fatias generosas e sobremesas montadas no dia' },
-    { title: 'Delivery Rápido em Curitiba', desc: 'Disponível no iFood, 99Food e WhatsApp' },
+    { title: 'Delivery no iFood & 99Food', desc: 'Entrega rápida e segura em Curitiba' },
   ],
-  deliveryNotice: 'Entregamos em Curitiba via motoboy refrigerado (iFood/WhatsApp) ou retirada no Água Verde.',
+  deliveryNotice: 'Entregamos em Curitiba via iFood, 99Food, WhatsApp ou retirada no Água Verde.',
   cnpj: 'Doce Castelo Doceria • Confeitaria Artesanal Curitiba',
 }

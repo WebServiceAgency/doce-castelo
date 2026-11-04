@@ -1,6 +1,6 @@
 'use client'
 
-import { X, MessageCircle, ShoppingBag, Users, Sparkles, AlertCircle } from 'lucide-react'
+import { X, MessageCircle, ShoppingBag, Users, Sparkles, AlertCircle, UtensilsCrossed } from 'lucide-react'
 import { Product } from '@/data/products'
 import { ThemeConfig } from '@/types/theme'
 
@@ -9,6 +9,7 @@ interface QuickViewModalProps {
   onClose: () => void
   onOrderWhatsApp: (product: Product) => void
   onOrderIfood: (product: Product) => void
+  onOrder99Food?: (product: Product) => void
   theme: ThemeConfig
 }
 
@@ -17,6 +18,7 @@ export function QuickViewModal({
   onClose,
   onOrderWhatsApp,
   onOrderIfood,
+  onOrder99Food,
   theme,
 }: QuickViewModalProps) {
   if (!product) return null
@@ -121,15 +123,25 @@ export function QuickViewModal({
                 Pedir no WhatsApp (Simulação)
               </button>
 
-              {product.availableOnIfood && (
+              <div className="grid grid-cols-2 gap-2">
+                {product.availableOnIfood && (
+                  <button
+                    onClick={() => onOrderIfood(product)}
+                    className={`flex items-center justify-center gap-1.5 bg-[#ea1d2c] px-3 py-2.5 text-xs font-bold text-white shadow-md shadow-[#ea1d2c]/20 transition-transform hover:-translate-y-0.5 hover:bg-[#d41423] ${theme.classes.buttonRadius}`}
+                  >
+                    <ShoppingBag className="size-4" />
+                    iFood
+                  </button>
+                )}
+
                 <button
-                  onClick={() => onOrderIfood(product)}
-                  className={`flex w-full items-center justify-center gap-2 bg-[#ea1d2c] px-4 py-2.5 text-xs font-bold text-white shadow-md shadow-[#ea1d2c]/20 transition-transform hover:-translate-y-0.5 hover:bg-[#d41423] ${theme.classes.buttonRadius}`}
+                  onClick={() => (onOrder99Food ? onOrder99Food(product) : onOrderIfood(product))}
+                  className={`flex items-center justify-center gap-1.5 bg-[#ff5e00] px-3 py-2.5 text-xs font-bold text-white shadow-md shadow-[#ff5e00]/20 transition-transform hover:-translate-y-0.5 hover:bg-[#e05300] ${theme.classes.buttonRadius}`}
                 >
-                  <ShoppingBag className="size-4" />
-                  Pedir pelo iFood (Pronta-Entrega)
+                  <UtensilsCrossed className="size-4" />
+                  99Food
                 </button>
-              )}
+              </div>
             </div>
           </div>
         </div>
@@ -137,4 +149,3 @@ export function QuickViewModal({
     </div>
   )
 }
-

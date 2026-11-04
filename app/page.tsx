@@ -18,6 +18,10 @@ import {
   Star,
   Truck,
   Eye,
+  GraduationCap,
+  Flame,
+  ExternalLink,
+  UtensilsCrossed,
 } from 'lucide-react'
 import { InstagramIcon } from '@/components/icons/InstagramIcon'
 import { siteConfig } from '@/config/site'
@@ -39,7 +43,7 @@ export default function Page() {
     isOpen: boolean
     product?: Product | null
     customRequest?: string
-    channel?: 'whatsapp' | 'ifood'
+    channel?: 'whatsapp' | 'ifood' | '99food'
   }>({
     isOpen: false,
     product: null,
@@ -57,7 +61,7 @@ export default function Page() {
   const openOrderDemo = (
     product?: Product | null,
     customRequest?: string,
-    channel: 'whatsapp' | 'ifood' = 'whatsapp'
+    channel: 'whatsapp' | 'ifood' | '99food' = 'whatsapp'
   ) => {
     setOrderModalData({
       isOpen: true,
@@ -115,11 +119,11 @@ export default function Page() {
             className="flex items-center gap-3 group shrink-0 mr-3 lg:mr-6 select-none"
             aria-label={`${siteConfig.name} início`}
           >
-            <span
-              className={`flex size-10 lg:size-11 items-center justify-center transition-all duration-300 group-hover:scale-105 ${theme.classes.logoShape} ${theme.classes.logoBg} ${theme.classes.logoColor}`}
-            >
-              <CakeSlice className="size-5" />
-            </span>
+            <img
+              src="/images/logo-doce-castelo.webp"
+              alt={siteConfig.name}
+              className={`size-10 lg:size-11 rounded-full object-cover transition-all duration-300 group-hover:scale-105 border border-[#d4a373]/40 shadow-sm shrink-0`}
+            />
             <span className="shrink-0">
               <strong
                 className={`block text-xl lg:text-2xl leading-none transition-colors whitespace-nowrap ${theme.classes.logoText}`}
@@ -134,20 +138,23 @@ export default function Page() {
 
           {/* Desktop Navigation Links */}
           <nav
-            className={`hidden lg:flex items-center justify-center gap-3.5 xl:gap-6 2xl:gap-8 font-semibold tracking-wide whitespace-nowrap px-2 xl:px-4 ${
+            className={`hidden lg:flex items-center justify-center gap-3 xl:gap-5 2xl:gap-7 font-semibold tracking-wide whitespace-nowrap px-2 xl:px-4 ${
               theme.isUppercaseTitles
                 ? 'uppercase font-mono text-[11px] xl:text-xs tracking-wider'
                 : 'text-xs xl:text-sm'
             }`}
           >
             <a href="#vitrine" className="whitespace-nowrap transition-colors hover:opacity-75 py-1">
-              Vitrine de Hoje
+              Cardápio
+            </a>
+            <a href="#comunidade" className="whitespace-nowrap transition-colors hover:opacity-75 py-1 text-orange-600 font-bold">
+              Cursos & Grupo VIP
             </a>
             <a href="#atelie" className="whitespace-nowrap transition-colors hover:opacity-75 py-1">
               Bolos de Festa
             </a>
             <a href="#diferenciais" className="whitespace-nowrap transition-colors hover:opacity-75 py-1">
-              Como Entregamos
+              Delivery (iFood & 99)
             </a>
             <a href="#depoimentos" className="whitespace-nowrap transition-colors hover:opacity-75 py-1">
               Avaliações
@@ -157,24 +164,40 @@ export default function Page() {
             </a>
           </nav>
 
-          {/* Header Action Buttons (iFood & WhatsApp) */}
-          <div className="hidden sm:flex items-center gap-2 xl:gap-3 shrink-0 ml-3 lg:ml-6">
-            <button
-              onClick={() => openOrderDemo(null, undefined, 'ifood')}
+          {/* Header Action Buttons (99Food, iFood & WhatsApp) */}
+          <div className="hidden sm:flex items-center gap-2 xl:gap-2.5 shrink-0 ml-3 lg:ml-6">
+            <a
+              href={siteConfig.social.food99Url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-1.5 border border-amber-500/40 bg-amber-500/10 px-3 py-2 text-xs font-bold text-amber-700 transition-all hover:bg-amber-500/20 whitespace-nowrap ${theme.classes.buttonRadius}`}
+              title="Pedir pelo 99Food"
+            >
+              <span className="flex size-4 items-center justify-center rounded-full bg-amber-500 text-white text-[9px] font-black">99</span>
+              <span>99Food</span>
+            </a>
+
+            <a
+              href={siteConfig.social.ifoodUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`flex items-center gap-1.5 border border-red-500/40 bg-red-500/10 px-3 py-2 text-xs font-bold text-[#ea1d2c] transition-all hover:bg-red-500/20 whitespace-nowrap ${theme.classes.buttonRadius}`}
               title="Pedir pelo iFood"
             >
               <ShoppingBag className="size-3.5 shrink-0" />
-              <span>Pedir no iFood</span>
-            </button>
+              <span>iFood</span>
+            </a>
 
-            <button
-              onClick={() => openOrderDemo(null, undefined, 'whatsapp')}
+            <a
+              href={siteConfig.social.whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold transition-all whitespace-nowrap ${theme.classes.primaryBtn}`}
+              title="Atendimento no WhatsApp Loja"
             >
               <MessageCircle className="size-3.5 shrink-0" />
-              <span>Fazer Pedido</span>
-            </button>
+              <span>WhatsApp Loja</span>
+            </a>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -360,8 +383,7 @@ export default function Page() {
                 theme.isUppercaseTitles ? 'uppercase tracking-wider font-extrabold' : 'font-bold'
               }`}
             >
-              A vitrine de hoje:{' '}
-              <em className={`not-italic ${theme.classes.accentText}`}>peça agora.</em>
+              <em className={`not-italic ${theme.classes.accentText}`}>Peça agora.</em>
             </h2>
           </div>
           <p
@@ -522,6 +544,82 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Seção Cursos de Confeitaria & Grupo VIP de Promoções */}
+      <section
+        id="comunidade"
+        className="relative z-10 mx-auto max-w-7xl scroll-mt-20 px-5 py-8 lg:px-8 lg:py-12"
+      >
+        <div className="grid gap-6 md:grid-cols-2">
+          {/* Card 1: Cursos de Confeitaria */}
+          <div
+            className={`flex flex-col justify-between overflow-hidden p-7 sm:p-9 transition-all ${theme.classes.cardRadius} border-2 border-orange-500/30 bg-gradient-to-br from-orange-500/10 via-transparent to-transparent shadow-lg shadow-orange-500/5`}
+          >
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-orange-500/15 px-3.5 py-1.5 text-xs font-bold text-orange-600 mb-4">
+                <GraduationCap className="size-4 shrink-0" />
+                <span>Cursos & Masterclasses • Vagas Limitadas</span>
+              </div>
+              <h3
+                className={`${theme.fontTitle} text-2xl sm:text-3xl font-bold leading-tight ${
+                  theme.isUppercaseTitles ? 'uppercase tracking-wider text-xl sm:text-2xl' : ''
+                }`}
+              >
+                Cursos de Confeitaria Doce Castelo
+              </h3>
+              <p className="mt-3 text-xs sm:text-sm leading-relaxed opacity-85">
+                Domine na prática técnicas profissionais de confeitaria com a nossa chef: massas estruturadas, recheios aveludados, ponto de brigadeiro de panela, montagem de taças gourmet e acabamento fino para venda ou celebração!
+              </p>
+            </div>
+            <div className="mt-7 pt-5 border-t border-black/10">
+              <a
+                href={siteConfig.social.cursosWhatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-md transition-all hover:scale-[1.02] cursor-pointer"
+              >
+                <GraduationCap className="size-4" />
+                <span>Quero me inscrever no próximo curso</span>
+                <ExternalLink className="size-3.5 opacity-80" />
+              </a>
+            </div>
+          </div>
+
+          {/* Card 2: Grupo VIP de Promoções */}
+          <div
+            className={`flex flex-col justify-between overflow-hidden p-7 sm:p-9 transition-all ${theme.classes.cardRadius} border-2 border-pink-500/30 bg-gradient-to-br from-pink-500/10 via-transparent to-transparent shadow-lg shadow-pink-500/5`}
+          >
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-pink-500/15 px-3.5 py-1.5 text-xs font-bold text-pink-600 mb-4">
+                <Flame className="size-4 shrink-0" />
+                <span>Canal Oficial de Clientes VIP</span>
+              </div>
+              <h3
+                className={`${theme.fontTitle} text-2xl sm:text-3xl font-bold leading-tight ${
+                  theme.isUppercaseTitles ? 'uppercase tracking-wider text-xl sm:text-2xl' : ''
+                }`}
+              >
+                🍰 Grupo de Promoções no WhatsApp
+              </h3>
+              <p className="mt-3 text-xs sm:text-sm leading-relaxed opacity-85">
+                Quer receber em primeira mão as fatias que acabaram de sair do forno, novidades do cardápio e aproveitar descontos relâmpago exclusivos? Entre no nosso grupo e garanta sua sobremesa com vantagens especiais!
+              </p>
+            </div>
+            <div className="mt-7 pt-5 border-t border-black/10">
+              <a
+                href={siteConfig.social.promoGroupWhatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-pink-600 to-rose-500 px-6 py-3.5 text-xs sm:text-sm font-bold text-white shadow-md transition-all hover:scale-[1.02] cursor-pointer"
+              >
+                <MessageCircle className="size-4" />
+                <span>Entrar no Grupo de Promoções</span>
+                <ExternalLink className="size-3.5 opacity-80" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Custom Cakes Studio Section (Ateliê de Bolos) */}
       <section
         id="atelie"
@@ -633,7 +731,7 @@ export default function Page() {
                 theme.isUppercaseTitles ? 'uppercase tracking-wider text-lg' : ''
               }`}
             >
-              Entrega Segura & iFood
+              Entrega Segura & Delivery
             </h3>
             <p
               className={`mt-3 text-xs sm:text-sm leading-relaxed ${
@@ -644,8 +742,8 @@ export default function Page() {
                     : 'text-[#755e51]'
               }`}
             >
-              Caixas reforçadas com base antiderrapante para o bolo chegar impecável à sua festa. Doces
-              e fatias disponíveis no iFood.
+              Caixas reforçadas com base antiderrapante para bolos e fatias chegarem impecáveis. Peça
+              pelo WhatsApp da loja, ou receba rápido via iFood e 99Food.
             </p>
           </div>
 
@@ -884,11 +982,11 @@ export default function Page() {
         <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <span
-                className={`flex size-10 items-center justify-center ${theme.classes.logoShape} ${theme.classes.logoBg} ${theme.classes.logoColor}`}
-              >
-                <CakeSlice className="size-5" />
-              </span>
+              <img
+                src="/images/logo-doce-castelo.webp"
+                alt={siteConfig.name}
+                className="size-11 rounded-full object-cover border border-[#d4a373]/40 shadow-sm"
+              />
               <span className={`text-2xl font-bold text-white ${theme.fontTitle}`}>
                 {siteConfig.name}
               </span>
@@ -956,7 +1054,7 @@ export default function Page() {
                 currentTheme === 'chocolatier' ? 'text-[#c4a17b]' : 'text-[#cdb9ad]'
               }`}
             >
-              Atendimento ágil para pedidos no WhatsApp e entrega expressa no iFood.
+              Atendimento ágil para pedidos no WhatsApp Loja e entrega expressa pelo iFood e 99Food.
             </p>
             <p className="mt-3 text-[11px] opacity-75">
               Rua Maranhão, 1031 • Água Verde, Curitiba
@@ -970,10 +1068,10 @@ export default function Page() {
       </footer>
 
       {/* Floating Action Bar on Mobile */}
-      <div className="fixed inset-x-4 bottom-4 z-30 flex items-center gap-2 sm:hidden">
+      <div className="fixed inset-x-3 bottom-4 z-30 flex items-center gap-2 sm:hidden">
         <button
           onClick={() => openOrderDemo(null, undefined, 'whatsapp')}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-3.5 text-xs font-bold text-white shadow-xl shadow-black/20 ${
+          className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-3 text-xs font-bold text-white shadow-xl shadow-black/20 ${
             currentTheme === 'minimalist'
               ? 'rounded-none bg-black border border-white'
               : currentTheme === 'retro'
@@ -985,13 +1083,13 @@ export default function Page() {
                     : 'rounded-full bg-[#25d366]'
           }`}
         >
-          <MessageCircle className="size-4" />
-          <span>Pedir no WhatsApp</span>
+          <MessageCircle className="size-4 shrink-0" />
+          <span className="truncate">Pedir no WhatsApp</span>
         </button>
 
         <button
           onClick={() => openOrderDemo(null, undefined, 'ifood')}
-          className={`flex items-center justify-center p-3.5 text-white shadow-xl shadow-black/20 ${
+          className={`flex items-center justify-center px-3 py-3 text-white shadow-xl shadow-black/20 font-bold text-xs gap-1 ${
             currentTheme === 'minimalist'
               ? 'rounded-none bg-[#ea1d2c] border border-black'
               : currentTheme === 'retro'
@@ -1003,8 +1101,30 @@ export default function Page() {
                     : 'rounded-full bg-[#ea1d2c]'
           }`}
           aria-label="Pedir no iFood"
+          title="iFood"
         >
-          <ShoppingBag className="size-4" />
+          <ShoppingBag className="size-4 shrink-0" />
+          <span className="text-[11px] font-semibold">iFood</span>
+        </button>
+
+        <button
+          onClick={() => openOrderDemo(null, undefined, '99food')}
+          className={`flex items-center justify-center px-3 py-3 text-white shadow-xl shadow-black/20 font-bold text-xs gap-1 ${
+            currentTheme === 'minimalist'
+              ? 'rounded-none bg-[#ff5e00] border border-black'
+              : currentTheme === 'retro'
+                ? 'rounded-2xl border-2 border-[#d9653b] bg-[#ff5e00]'
+                : currentTheme === 'chocolatier'
+                  ? 'rounded-xl border border-[#e5b567]/50 bg-[#ff5e00]'
+                  : currentTheme === 'parisienne'
+                    ? 'rounded-full border border-[#c5a059]/40 bg-[#ff5e00]'
+                    : 'rounded-full bg-[#ff5e00]'
+          }`}
+          aria-label="Pedir no 99Food"
+          title="99Food"
+        >
+          <UtensilsCrossed className="size-4 shrink-0" />
+          <span className="text-[11px] font-semibold">99Food</span>
         </button>
       </div>
 
@@ -1033,6 +1153,10 @@ export default function Page() {
         onOrderIfood={(prod) => {
           setSelectedProductForQuickView(null)
           openOrderDemo(prod, undefined, 'ifood')
+        }}
+        onOrder99Food={(prod) => {
+          setSelectedProductForQuickView(null)
+          openOrderDemo(prod, undefined, '99food')
         }}
         theme={theme}
       />
