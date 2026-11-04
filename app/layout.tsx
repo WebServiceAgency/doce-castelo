@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description:
     'Fatias de bolo recheadas, taças de brownie com Nutella, bombons de copo e sobremesas no Água Verde em Curitiba. Peça pelo WhatsApp ou iFood.',
   openGraph: {
-    title: 'Doce Castelo Doceria | Fatias Nobres & Doces Artesanais em Curitiba',
+    title: 'Doce Castelo Doceria | Bolos, doces e cafés em Curitiba',
     description:
       'Fatias de bolo Ferrero Rocher e Kinder Bueno, taças com Nutella pura, bombons de morango e uva Thompson. Nota 4.8 no Google.',
     url: 'https://doce-castelo.weseag.workers.dev',

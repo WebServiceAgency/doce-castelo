@@ -237,7 +237,7 @@ export const themeConfigs: Record<ThemeStyle, ThemeConfig> = {
     id: 'chocolatier',
     name: 'Chocolatier',
     label: '🍫 Chocolatier',
-    badgeLabel: 'Alta Chocolateria & Cacau Especial',
+    badgeLabel: '🍰Festival de Fatias, todo dia!',
     description: 'Cacau noir profundo, caramelo dourado, detalhes em ouro quente e âmbar aveludado. A atmosfera de uma chocolateria fina suíça e belga.',
     vibe: 'Cacau Puro · Ouro Quente · Sofisticação Noir',
     fontTitle: 'font-theme-chocolatier',

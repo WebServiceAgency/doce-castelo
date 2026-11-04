@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'Doce Castelo Doceria',
-  tagline: 'Fatias Nobres & Confeitaria Artesanal',
+  tagline: 'Bolos, doces e cafés em Curitiba',
   headline: 'Momentos doces merecem',
   headlineHighlight: 'sabores inesquecíveis.',
   description:
@@ -40,5 +40,5 @@ export const siteConfig = {
     { title: 'Delivery no iFood & 99Food', desc: 'Entrega rápida e segura em Curitiba' },
   ],
   deliveryNotice: 'Entregamos em Curitiba via iFood, 99Food, WhatsApp ou retirada no Água Verde.',
-  cnpj: 'Doce Castelo Doceria • Confeitaria Artesanal Curitiba',
+  cnpj: 'Doce Castelo Doceria • Bolos, doces e cafés em Curitiba',
 }
