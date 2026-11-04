@@ -1,0 +1,20 @@
+packages:
+  - '.'
+
+pmOnFail: ignore
+
+minimumReleaseAgeExclude:
+  - '@next/*'
+  - next
+
+allowBuilds:
+  esbuild: true
+  workerd: true
+  '@cloudflare/workerd-linux-64': true
+  sharp: true
+
+onlyBuiltDependencies:
+  - esbuild
+  - workerd
+  - '@cloudflare/workerd-linux-64'
+  - sharp

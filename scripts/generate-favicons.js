@@ -1,0 +1,77 @@
+const sharp = require('sharp')
+const fs = require('fs')
+const path = require('path')
+
+// A beautifully crafted cake icon (Celebration Cake) with transparent background
+const cakeSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <!-- Candle Flame with warm glow -->
+  <path d="M32 3 C30 7 28.5 9 32 12 C35.5 9 34 7 32 3 Z" fill="#F59E0B" stroke="#B45309" stroke-width="1.2" stroke-linejoin="round"/>
+  <circle cx="32" cy="8.5" r="1.5" fill="#FEF08A"/>
+  
+  <!-- Candle -->
+  <rect x="30" y="12" width="4" height="9" rx="1.5" fill="#E8B4B8" stroke="#4A261A" stroke-width="1.5"/>
+  <line x1="30" y1="15" x2="34" y2="15" stroke="#C85A6E" stroke-width="1"/>
+
+  <!-- Upper Tier / Cake Top -->
+  <!-- Cake Top Sponge -->
+  <path d="M19 23 C19 20.5 45 20.5 45 23 L45 36 C45 38.5 19 38.5 19 36 Z" fill="#FDF3E7" stroke="#4A261A" stroke-width="2" stroke-linejoin="round"/>
+  
+  <!-- Upper Tier Frosting Drips -->
+  <path d="M19 23 C19 25 22 29 25 27 C28 25 31 30 35 27 C39 25 42 29 45 25 L45 22 C45 20 19 20 19 22 Z" fill="#8B263E" stroke="#4A261A" stroke-width="1.5" stroke-linejoin="round"/>
+
+  <!-- Lower Tier / Cake Body -->
+  <path d="M11 36 C11 33 53 33 53 36 L53 53 C53 57 11 57 11 53 Z" fill="#FED7AA" stroke="#4A261A" stroke-width="2" stroke-linejoin="round"/>
+
+  <!-- Middle Cream Filling Line -->
+  <path d="M11 45 C20 47 44 47 53 45" stroke="#8B263E" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Lower Tier Frosting Drips -->
+  <path d="M11 36 C11 38 15 42 19 40 C23 38 27 43 32 40 C37 37 41 43 45 40 C49 37 53 41 53 36 L53 34 C53 32 11 32 11 34 Z" fill="#8B263E" stroke="#4A261A" stroke-width="1.5" stroke-linejoin="round"/>
+
+  <!-- Cake Base Stand / Plate -->
+  <ellipse cx="32" cy="56" rx="27" ry="4.5" fill="#EADFD5" stroke="#4A261A" stroke-width="2"/>
+
+  <!-- Decorative Frosting Pearls / Sprinkles -->
+  <circle cx="21" cy="49" r="1.5" fill="#E11D48"/>
+  <circle cx="28" cy="51" r="1.5" fill="#F59E0B"/>
+  <circle cx="36" cy="50" r="1.5" fill="#10B981"/>
+  <circle cx="43" cy="49" r="1.5" fill="#3B82F6"/>
+</svg>`
+
+async function generate() {
+  const publicDir = path.join(__dirname, '..', 'public')
+  const appDir = path.join(__dirname, '..', 'app')
+  const svgBuffer = Buffer.from(cakeSvg)
+
+  // 1. Save SVG icon to public/icon.svg
+  fs.writeFileSync(path.join(publicDir, 'icon.svg'), cakeSvg, 'utf8')
+  console.log('Saved public/icon.svg')
+
+  // Also save to app/icon.svg (Next.js App Router default)
+  fs.writeFileSync(path.join(appDir, 'icon.svg'), cakeSvg, 'utf8')
+  console.log('Saved app/icon.svg')
+
+  // 2. Generate 32x32 transparent PNGs
+  const png32 = await sharp(svgBuffer).resize(32, 32).png().toBuffer()
+  fs.writeFileSync(path.join(publicDir, 'icon-light-32x32.png'), png32)
+  fs.writeFileSync(path.join(publicDir, 'icon-dark-32x32.png'), png32)
+  fs.writeFileSync(path.join(publicDir, 'favicon.ico'), png32)
+  fs.writeFileSync(path.join(appDir, 'favicon.ico'), png32)
+  console.log('Generated 32x32 transparent PNGs & favicons')
+
+  // 3. Generate 180x180 Apple Touch Icon (transparent)
+  const png180 = await sharp(svgBuffer).resize(180, 180).png().toBuffer()
+  fs.writeFileSync(path.join(publicDir, 'apple-icon.png'), png180)
+  fs.writeFileSync(path.join(appDir, 'apple-icon.png'), png180)
+  console.log('Generated 180x180 apple-icon.png')
+
+  // 4. Also update placeholder-logo if needed
+  fs.writeFileSync(path.join(publicDir, 'placeholder-logo.svg'), cakeSvg, 'utf8')
+
+  console.log('All favicon files updated successfully with transparent background!')
+}
+
+generate().catch(err => {
+  console.error('Error generating favicons:', err)
+  process.exit(1)
+})
