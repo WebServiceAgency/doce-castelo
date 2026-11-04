@@ -24,7 +24,7 @@ export function DemoOrderModal({
   const messageText = product
     ? `Olá, ${siteConfig.name}! Vim pelo site e gostaria de pedir o item "${product.name}" (${product.price}). Poderiam me informar a disponibilidade e taxa de entrega para Curitiba?`
     : customRequest
-      ? `Olá, ${siteConfig.name}! Gostaria de consultar a disponibilidade para ${customRequest}. Vi as opções no site!`
+      ? `Olá, ${siteConfig.name}! Vim pelo site e gostaria de consultar orçamento e disponibilidade para ${customRequest}. Como funciona a encomenda?`
       : `Olá, ${siteConfig.name}! Vim pelo site e gostaria de fazer um pedido ou consultar as fatias disponíveis no dia.`
 
   const whatsappUrl = siteConfig.social.whatsappLink

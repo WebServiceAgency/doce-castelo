@@ -270,7 +270,7 @@ export default function Page() {
               onClick={() =>
                 openOrderDemo(
                   null,
-                  'um bolo personalizado sob medida para o meu evento',
+                  'um bolo personalizado de festa ou evento especial',
                   'whatsapp'
                 )
               }
@@ -346,8 +346,8 @@ export default function Page() {
         id="vitrine"
         className="relative z-10 mx-auto max-w-7xl scroll-mt-20 px-5 py-16 lg:px-8 lg:py-24"
       >
-        {/* Section Header */}
-        <div className="mb-8 flex justify-start">
+        {/* Section Header & Store Status */}
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
           <div
             className={`w-fit text-left flex flex-col items-start justify-center px-7 py-3.5 sm:px-9 sm:py-4 transition-all duration-300 ${
               currentTheme === 'chocolatier'
@@ -365,6 +365,24 @@ export default function Page() {
             >
               <em>🍰 Peça agora</em>
             </p>
+          </div>
+
+          {/* Store Live Status Badge */}
+          <div
+            className={`flex items-center gap-2.5 px-4 py-2.5 rounded-full border shadow-sm backdrop-blur-md transition-all ${
+              currentTheme === 'chocolatier'
+                ? 'bg-[#1a0f0a]/90 border-[#e5b567]/30 text-[#e5b567]'
+                : 'bg-white/95 border-[#f4cbd1] text-[#2c1418]'
+            }`}
+          >
+            <span className="relative flex size-2.5 items-center justify-center">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex size-2.5 rounded-full bg-emerald-500" />
+            </span>
+            <div className="text-xs">
+              <strong className="font-bold text-emerald-600 mr-1.5">Aberto para pedidos</strong>
+              <span className="opacity-70 text-[11px] hidden sm:inline">• {siteConfig.hours.weekdays.split('|')[0]}</span>
+            </div>
           </div>
         </div>
 
@@ -614,7 +632,7 @@ export default function Page() {
                 onClick={() =>
                   openOrderDemo(
                     null,
-                    'um projeto de bolo personalizado para o meu evento',
+                    'um projeto de bolo personalizado de festa com a confeiteira',
                     'whatsapp'
                   )
                 }
@@ -723,12 +741,14 @@ export default function Page() {
               <br />
               {siteConfig.hours.weekdays}
             </p>
-            <button
-              onClick={() => openOrderDemo(null, 'como chegar para retirar meu pedido no ateliê')}
-              className={`mt-4 inline-flex items-center gap-1.5 text-xs font-bold cursor-pointer ${theme.classes.accentText}`}
+            <a
+              href={siteConfig.address.googleMapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`mt-4 inline-flex items-center gap-1.5 text-xs font-bold transition-transform hover:translate-x-0.5 cursor-pointer ${theme.classes.accentText}`}
             >
-              Ver localização no mapa <ArrowRight className="size-3.5" />
-            </button>
+              Ver localização no Google Maps <ExternalLink className="size-3.5" />
+            </a>
           </div>
         </div>
       </section>
