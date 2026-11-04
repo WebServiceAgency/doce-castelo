@@ -347,23 +347,25 @@ export default function Page() {
         className="relative z-10 mx-auto max-w-7xl scroll-mt-20 px-5 py-16 lg:px-8 lg:py-24"
       >
         {/* Section Header */}
-        <div
-          className={`mb-10 mx-auto max-w-xl text-center flex flex-col items-center justify-center p-6 sm:p-8 transition-all duration-300 ${
-            currentTheme === 'chocolatier'
-              ? 'rounded-3xl bg-[#140b07]/90 border border-[#e5b567]/30 shadow-2xl backdrop-blur-md'
-              : 'rounded-3xl bg-white/95 border border-[#f4cbd1] shadow-xl shadow-[#db7a83]/10 backdrop-blur-md'
-          }`}
-        >
-          <h2
-            className={`${theme.fontTitle} text-3xl sm:text-5xl font-extrabold tracking-tight ${theme.classes.textColor}`}
+        <div className="mb-8 flex justify-center">
+          <div
+            className={`w-fit text-center flex flex-col items-center justify-center px-8 py-3.5 sm:px-12 sm:py-4 transition-all duration-300 ${
+              currentTheme === 'chocolatier'
+                ? 'rounded-2xl bg-[#140b07]/90 border border-[#e5b567]/30 shadow-2xl backdrop-blur-md'
+                : 'rounded-2xl bg-white/95 border border-[#f4cbd1] shadow-lg shadow-[#db7a83]/10 backdrop-blur-md'
+            }`}
           >
-            Cardápio
-          </h2>
-          <p
-            className={`mt-1.5 text-base sm:text-xl font-bold tracking-wide italic ${theme.classes.accentText}`}
-          >
-            <em>🍰 Peça agora</em>
-          </p>
+            <h2
+              className={`${theme.fontTitle} text-3xl sm:text-4xl font-extrabold tracking-tight ${theme.classes.textColor}`}
+            >
+              Cardápio
+            </h2>
+            <p
+              className={`mt-0.5 text-sm sm:text-base font-bold tracking-wide italic ${theme.classes.accentText}`}
+            >
+              <em>🍰 Peça agora</em>
+            </p>
+          </div>
         </div>
 
         {/* Category Filter Pills (styled per theme) */}
