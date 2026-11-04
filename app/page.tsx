@@ -348,32 +348,21 @@ export default function Page() {
       >
         {/* Section Header */}
         <div
-          className={`mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end p-6 sm:p-8 transition-all duration-300 ${
+          className={`mb-10 mx-auto max-w-xl text-center flex flex-col items-center justify-center p-6 sm:p-8 transition-all duration-300 ${
             currentTheme === 'chocolatier'
               ? 'rounded-3xl bg-[#140b07]/90 border border-[#e5b567]/30 shadow-2xl backdrop-blur-md'
               : 'rounded-3xl bg-white/95 border border-[#f4cbd1] shadow-xl shadow-[#db7a83]/10 backdrop-blur-md'
           }`}
         >
-          <div>
-            <p
-              className={`mb-2 text-xs font-bold uppercase tracking-widest ${
-                currentTheme === 'chocolatier' ? 'text-[#e5b567]' : 'text-[#b84855]'
-              }`}
-            >
-              Cardápio Selecionado
-            </p>
-            <h2
-              className={`${theme.fontTitle} text-3xl sm:text-5xl tracking-tight font-bold`}
-            >
-              <em className={`not-italic ${theme.classes.accentText}`}>Peça agora.</em>
-            </h2>
-          </div>
-          <p
-            className={`max-w-xs text-xs sm:text-sm leading-relaxed ${
-              currentTheme === 'chocolatier' ? 'text-[#d6b797]' : 'text-[#4a242c]'
-            }`}
+          <h2
+            className={`${theme.fontTitle} text-3xl sm:text-5xl font-extrabold tracking-tight ${theme.classes.textColor}`}
           >
-            Produção em pequenos lotes diários para garantir o máximo frescor e textura perfeita.
+            Cardápio
+          </h2>
+          <p
+            className={`mt-1.5 text-base sm:text-xl font-bold tracking-wide ${theme.classes.accentText}`}
+          >
+            Peça agora
           </p>
         </div>
 
