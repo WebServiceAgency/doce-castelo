@@ -360,9 +360,9 @@ export default function Page() {
             Cardápio
           </h2>
           <p
-            className={`mt-1.5 text-base sm:text-xl font-bold tracking-wide ${theme.classes.accentText}`}
+            className={`mt-1.5 text-base sm:text-xl font-bold tracking-wide italic ${theme.classes.accentText}`}
           >
-            Peça agora
+            <em>🍰 Peça agora</em>
           </p>
         </div>
 
