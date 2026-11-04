@@ -263,7 +263,7 @@ export default function Page() {
               href="#vitrine"
               className={`inline-flex items-center gap-2 px-6 py-3.5 text-xs sm:text-sm font-bold transition-transform hover:-translate-y-0.5 ${theme.classes.primaryBtn}`}
             >
-              Ver vitrine de hoje <ArrowRight className="size-4" />
+              Ver cardápio <ArrowRight className="size-4" />
             </a>
 
             <button
